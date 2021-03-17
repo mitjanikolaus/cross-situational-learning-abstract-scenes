@@ -34,9 +34,10 @@ def validate_model(model, dataloader, semantic_images_loaders, vocab, args):
     model.eval()
     with torch.no_grad():
         for name, semantic_images_loader in semantic_images_loaders.items():
-            acc = eval_semantics_score(model, semantic_images_loader, vocab)
-            print(f"Accuracy for {name}: {acc:.3f}")
-            semantic_accuracies[name] = acc
+            accuracies = eval_semantics_score(model, semantic_images_loader, vocab)
+            mean_acc = np.mean(accuracies)
+            print(f"Accuracy for {name}: {mean_acc:.3f}")
+            semantic_accuracies[name] = mean_acc
 
         val_losses = []
         val_accuracies = []

@@ -9,6 +9,7 @@ import numpy as np
 import torch
 import torch.distributions
 import torch.utils.data
+from scipy.stats import ttest_1samp
 
 from dataset import SemanticsEvalDataset
 from models.image_captioning.show_and_tell import ShowAndTell
@@ -121,7 +122,7 @@ def eval_semantics_score(model, dataloader, vocab, verbose=False):
             if len(accuracies) > EVAL_MAX_SAMPLES:
                 break
 
-    return np.mean(accuracies)
+    return accuracies
 
 
 def main(args):
@@ -202,9 +203,11 @@ def main(args):
 
     semantic_accuracies = {}
     for name, semantic_images_loader in semantics_eval_loaders.items():
-        acc = eval_semantics_score(model, semantic_images_loader, vocab, verbose=args.verbose)
-        print(f"Accuracy for {name}: {acc:.3f}\n")
-        semantic_accuracies[name] = acc
+        accuracies = eval_semantics_score(model, semantic_images_loader, vocab, verbose=args.verbose)
+        mean_acc = np.mean(accuracies)
+        _, p_value = ttest_1samp(accuracies, 0.5)
+        print(f"Accuracy for {name}: {mean_acc:.3f} p={p_value}\n")
+        semantic_accuracies[name] = mean_acc
 
 
 def get_args():
