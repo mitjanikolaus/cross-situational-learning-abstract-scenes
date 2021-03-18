@@ -6,6 +6,8 @@ import os
 
 import numpy as np
 
+import pandas as pd
+
 import torch
 import torch.distributions
 import torch.utils.data
@@ -206,6 +208,8 @@ def main(args):
         accuracies = eval_semantics_score(model, semantic_images_loader, vocab, verbose=args.verbose)
         mean_acc = np.mean(accuracies)
         _, p_value = ttest_1samp(accuracies, 0.5)
+
+        pd.DataFrame(accuracies).to_csv(name.replace("data", "results"), index=False)
         print(f"Accuracy for {name}: {mean_acc:.3f} p={p_value}\n")
         semantic_accuracies[name] = mean_acc
 
