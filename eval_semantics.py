@@ -12,6 +12,7 @@ import torch
 import torch.distributions
 import torch.utils.data
 from scipy.stats import ttest_1samp
+from statsmodels.stats.proportion import proportions_ztest, binom_test
 
 from dataset import SemanticsEvalDataset
 from models.image_captioning.show_and_tell import ShowAndTell
@@ -207,8 +208,7 @@ def main(args):
     for name, semantic_images_loader in semantics_eval_loaders.items():
         accuracies = eval_semantics_score(model, semantic_images_loader, vocab, verbose=args.verbose)
         mean_acc = np.mean(accuracies)
-        _, p_value = ttest_1samp(accuracies, 0.5)
-
+        p_value = binom_test(sum(accuracies), len(accuracies), alternative="larger")
         pd.DataFrame(accuracies).to_csv(name.replace("data", "results"), index=False)
         print(f"Accuracy for {name}: {mean_acc:.3f} p={p_value}\n")
         semantic_accuracies[name] = mean_acc
