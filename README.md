@@ -36,7 +36,7 @@ python train_image_sentence_ranking.py --checkpoint-dir $CHECKPOINT_DIR --log-fr
 The learning trajectory can be plotted using the following command:
 
 ```
-python plot_accuracies.py --group-noun-accuracies --scores-files $CHECKPOINT_DIR/ranking_accuracies.p"
+python plot_accuracies.py --group-noun-accuracies --scores-files $CHECKPOINT_DIR/ranking_accuracies.p
 ```
 
 If multiple scores files are given (e.g. for different model runs), mean and standard deviation are automatically
