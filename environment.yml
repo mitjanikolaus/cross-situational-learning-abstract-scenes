@@ -1,8 +1,8 @@
 name: xsl
 channels:
   - pytorch
-  - conda-forge
   - anaconda
+  - conda-forge
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
@@ -61,7 +61,6 @@ dependencies:
   - python=3.6.12=hcff3b4d_2
   - python-dateutil=2.8.1=py_0
   - python_abi=3.6=1_cp36m
-  - pytorch=1.4.0=py3.6_cuda10.1.243_cudnn7.6.3_0
   - pytz=2021.1=pyhd3eb1b0_0
   - pywavelets=1.1.1=py36h7b6447c_2
   - pyyaml=5.4.1=py36h27cfd23_1
@@ -70,6 +69,7 @@ dependencies:
   - requests=2.25.1=pyhd3eb1b0_0
   - scikit-image=0.17.2=py36hdf5156a_0
   - scikit-learn=0.23.2=py36hb6e6923_3
+  - seaborn=0.11.0=py_0
   - setuptools=51.3.3=py36h06a4308_4
   - six=1.15.0=pyh9f0ad1d_0
   - sqlite=3.33.0=h62c20be_0
@@ -109,3 +109,4 @@ dependencies:
     - torchvision==0.4.0
     - typing-extensions==3.7.4.3
     - zipp==3.4.0
+prefix: /storage/raid1/homedirs/mitja.nikolaus/anaconda3/envs/xsl
