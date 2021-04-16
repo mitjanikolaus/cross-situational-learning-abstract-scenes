@@ -8,19 +8,8 @@ DEFAULT_BATCH_SIZE = 32
 
 SPECIAL_CHARACTERS = [TOKEN_START, TOKEN_END, TOKEN_PADDING]
 
-CHECKPOINT_DIR_IMAGE_CAPTIONING = os.path.join(
-    Path.home(), "data/visual_ref/checkpoints/captioning/"
-)
-
 CHECKPOINT_DIR_RANKING = os.path.join(
     Path.home(), "data/visual_ref/checkpoints/ranking/"
-)
-
-CHECKPOINT_PATH_LANGUAGE_MODEL_BEST = os.path.join(
-    Path.home(), "data/visual_ref/checkpoints/lm/language_model.pt"
-)
-SEMANTIC_ACCURACIES_PATH_LANGUAGE_MODEL = os.path.join(
-    Path.home(), "data/visual_ref/checkpoints/lm/semantic_accuracies_lm.p"
 )
 
 SEMANTICS_EVAL_FILES = [
@@ -50,4 +39,3 @@ def decode_caption(caption, vocab, join=True):
 def print_caption(caption, vocab):
     caption = decode_caption(caption, vocab)
     print(caption)
-

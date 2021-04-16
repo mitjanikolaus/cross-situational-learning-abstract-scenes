@@ -10,6 +10,6 @@
 #SBATCH --output=out/train_ranking_5.out
 #SBATCH --error=out/train_ranking_5.out
 
-source activate egg
+source activate xsl
 python -u train_image_sentence_ranking.py --lr 0.0001 --n_epochs 15 --checkpoint-dir ~/data/visual_ref/checkpoints/ranking_run_5/
 

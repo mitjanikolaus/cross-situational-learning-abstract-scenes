@@ -8,6 +8,6 @@
 #SBATCH --output=out/preprocess.out
 #SBATCH --error=out/preprocess.out
 
-source activate egg
+source activate xsl
 python -u preprocess.py
 

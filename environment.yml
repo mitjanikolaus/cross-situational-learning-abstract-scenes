@@ -1,4 +1,4 @@
-name: egg
+name: xsl
 channels:
   - pytorch
   - conda-forge
@@ -105,4 +105,3 @@ dependencies:
     - torchvision==0.4.0
     - typing-extensions==3.7.4.3
     - zipp==3.4.0
-prefix: /storage/raid1/homedirs/mitja.nikolaus/anaconda3/envs/egg
