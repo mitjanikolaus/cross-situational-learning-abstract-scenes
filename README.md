@@ -1,4 +1,4 @@
-# cross-situational-learning
+# cross-situational-learning-abstract-scenes
 
 This repository contains code for the experiments described in the following paper:
 
